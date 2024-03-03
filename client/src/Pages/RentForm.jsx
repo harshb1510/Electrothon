@@ -1,9 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import TimePicker from 'react-time-picker';
-import 'react-time-picker/dist/TimePicker.css';
 
 export default function RentForm() {
   const [carName, setCarName] = useState("");
