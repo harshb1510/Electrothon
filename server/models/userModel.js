@@ -37,6 +37,10 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  wallet: {
+    type: String,
+    default: "",
+  },
 });
 
 userSchema.methods.matchPassword = async function (enteredPassword) {
