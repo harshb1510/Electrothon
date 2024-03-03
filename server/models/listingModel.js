@@ -31,6 +31,9 @@ const listingSchema = new mongoose.Schema({
   carOwnerEmail: {
     type: String,
   },
+  carOwnerId: {
+    type: String,
+  },
   availableTill: {
     type: String,
   },

@@ -12,10 +12,9 @@ const listNewCar = async (req, res) => {
     available,
     carOwner,
     carOwnerEmail,
+    carOwnerId,
     availableTill,
   } = req.body;
-
-  console.log(req.body);
 
   const car = await List.create({
     carName,
@@ -28,6 +27,7 @@ const listNewCar = async (req, res) => {
     available,
     carOwner,
     carOwnerEmail,
+    carOwnerId,
     availableTill,
   });
 

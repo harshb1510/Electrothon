@@ -2,16 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.link{
+
+.link {
   text-decoration: none;
 }
-body{
-  background:linear-gradient(90deg, rgb(14, 141, 80) 2%, rgb(23, 162, 95) 35%, rgb(9, 141, 168) 100%);
-  overflow-x:hidden;
+
+body {
+  background: linear-gradient(90deg, rgb(151, 207, 181) 2%, rgb(122, 175, 149) 35%, rgb(146, 186, 193) 100%);
+  overflow-x: hidden;
 }
