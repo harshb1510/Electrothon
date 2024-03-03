@@ -10,7 +10,7 @@ const MyCar = () => {
   }, []);
 
   const getCars = async () => {
-    const res = await fetch("http://localhost:5000/listings/myCar", {
+    const res = await fetch("http://localhost:8000/listings/myCar", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
