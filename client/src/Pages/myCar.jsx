@@ -5,6 +5,7 @@ import Card from "../Components/Card";
 const MyCar = () => {
   const [cars, setCars] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
+  const [account, setAccount] = useState("");
 
   useEffect(() => {
     getCars();
@@ -36,19 +37,19 @@ const MyCar = () => {
       body: JSON.stringify({ wallet: accounts[0] }),
     });
     const data = await res.json();
-    console.log(data);    
-    localStorage.removeItem("user");
-    localStorage.setItem("user", JSON.stringify(data));
-    console.log(accounts[0]);
+    console.log(data.user);
+    localStorage.setItem("user", JSON.stringify(data.user));
+    setAccount(accounts[0]);
   };
 
   return (
     <>
-      {user.wallet ? (
-        <h1>{user.wallet}</h1>
-      ) : (
-        <button onClick={handleConnect}>Connect Wallet</button>
-      )}
+      {user.wallet || account ? (
+    <h1>{user.wallet || account}</h1>
+  ) : (
+    <button onClick={handleConnect}>Connect Wallet</button>
+  )}
+
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-12">
         {cars.map((car) => (

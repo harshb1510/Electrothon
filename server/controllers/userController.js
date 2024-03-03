@@ -57,7 +57,6 @@ const getUser = async (req, res) => {
 const addWallet = async (req, res) => {
   try {
     const userId = req.headers["x-auth-token"];
-    console.log(userId);
     if (userId) {
       const wallet = req.body.wallet;
       const updateResult = await User.updateOne({ _id: userId }, { wallet });
