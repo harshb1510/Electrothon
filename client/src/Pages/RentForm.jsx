@@ -7,9 +7,9 @@ export default function RentForm() {
   const [image2, setImage2] = useState("");
   const [location, setLocation] = useState("");
   const [kms, setKms] = useState("");
-const [hourlyRate, setHourlyRate] = useState("");
-const [dailyRate, setDailyRate] = useState("");
-const [availableTill, setAvailableTill] = useState("");
+  const [hourlyRate, setHourlyRate] = useState("");
+  const [dailyRate, setDailyRate] = useState("");
+  const [availableTill, setAvailableTill] = useState("");
   const [url1, setUrl1] = useState(null);
     const [url2, setUrl2] = useState(null);
 

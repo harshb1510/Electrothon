@@ -56,7 +56,7 @@ const Testimonials = () => (
         What People are  saying about us
       </h2>
     </div>
-    <div className="flex flex-wrap sm:justify-start justify-center pl-5 pt-5 w-full relative z-[1]">
+    <div className="flex flex-wrap sm:justify-start justify-center pl-1 pt-5 w-full relative z-[1]">
       {feedback.map((card) => <FeedbackCard key={card.id} {...card} />)}
     </div>
   </section>

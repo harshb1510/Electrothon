@@ -14,32 +14,32 @@ export default function Navbar() {
 
   return (
     <div>
-     <nav class="bg-[#232121]">
-        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+     <nav class="bg-[#232121] text-white">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-white">
             <Link href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src={logo} className="h-20 w-[300px]" alt="Flowbite Logo" />
             </Link>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
-            <a
+            <Link
               href="#"
-              className="text-sm text-black cursor-pointer hover:underline"
+              className="text-[20px]  cursor-pointer hover:underline"
             >
               Parking
-            </a>
-            <a
+            </Link>
+            <Link
               href="#"
-              className="text-sm text-black cursor-pointer hover:underline"
+              className="text-[20px]  cursor-pointer hover:underline"
             >
               Rental
-            </a>
+            </Link>
             {isLoggedIn ? (
               <>
-                <span className="text-sm text-black cursor-pointer hover:underline">
+                <span className="text-[20px]  cursor-pointer hover:underline">
                   Hii !! {user && user.userName ? user.userName : ""}
                 </span>{" "}
                 <button
                   onClick={handleLogout}
-                  className="text-sm text-black cursor-pointer hover:underline"
+                  className="text-[20px]  cursor-pointer hover:underline"
                 >
                   Logout
                 </button>
@@ -48,13 +48,13 @@ export default function Navbar() {
               <>
                 <Link
                   to="/login"
-                  className="text-sm text-black cursor-pointer hover:underline"
+                  className="text-[20px]  cursor-pointer hover:underline"
                 >
                   Login
                 </Link>
                 <Link
                   to="/signup"
-                  className="text-sm text-black cursor-pointer hover:underline"
+                  className="text-[20px]  cursor-pointer hover:underline"
                 >
                   Signup
                 </Link>
