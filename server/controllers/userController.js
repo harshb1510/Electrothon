@@ -11,16 +11,14 @@ const generateToken = (user) => {
 };
 
 const loginUser = async (req, res) => {
-  const { email, password } = req.body;
-  const user = await User.findOne({ email });
+  const { userName, password } = req.body;
+  const user = await User.findOne({ userName });
   if (user && (await user.matchPassword(password))) {
     const token = generateToken(user);
     res.cookie("token", token);
     res.json({
-      _id: user._id,
-      userName: user.userName,
-      role: user.role,
       token,
+      user,
     });
   } else {
     res.status(401).json("Invalid Email or Password");
@@ -28,26 +26,31 @@ const loginUser = async (req, res) => {
 };
 
 const registerUser = async (req, res) => {
-  const { userName, email, password } = req.body.formData;
-  const { role } = req.body;
+  const { userName, fullName, email, password } = req.body;
   const userExists = await User.findOne({ $or: [{ email }, { userName }] });
   if (userExists) {
     res.status(404).json({ messsage: "Username or Email Already Exist" });
   } else {
-    const user = await User.create({ userName, email, password, role });
+    const user = await User.create({ userName, fullName, email, password });
     if (user) {
-      const token = generateToken(user);
-      console.log(token);
-      res.cookie("token", token);
       res.status(201).json({
-        _id: user._id,
-        userName: user.userName,
-        role: user.role,
-        token,
+        Success: "User Registered Successfully!",
       });
     } else {
       res.status(400);
     }
+  }
+};
+
+const getUser = async (req, res) => {
+  const userId = req.headers["x-auth-token"];
+  if (userId) {
+    const user = await User.findOne({ _id: userId });
+    if (user) {
+      return res.status(200).send(user);
+    }
+  } else {
+    return res.status(401).send({ error: "User Not Found...!" });
   }
 };
 
@@ -98,6 +101,7 @@ const updateProfile = async (req, res) => {
 module.exports = {
   loginUser,
   registerUser,
+  getUser,
   updatePassword,
   updateProfile,
 };

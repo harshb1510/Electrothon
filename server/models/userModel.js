@@ -7,11 +7,7 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: true,
   },
-  firstName: {
-    type: String,
-    default: "",
-  },
-  lastName: {
+  fullName: {
     type: String,
     default: "",
   },
@@ -31,7 +27,7 @@ const userSchema = mongoose.Schema({
   pic: {
     type: String,
     default:
-      "https://res.cloudinary.com/dlnkiwqfa/image/upload/v1700890727/gdigsqfldk4vliwgzfhm.svg",
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
   },
   renter: {
     type: Boolean,
