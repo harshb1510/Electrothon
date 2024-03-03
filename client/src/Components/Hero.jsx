@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="flex justify-between items-center px-6 py-10 bg-[#232121]"
+      className="flex justify-between items-center px-6 py-10 bg-[#3f757e]"
     >
       <div className="flex flex-col flex-1">
         <div className="mb-8">

@@ -14,7 +14,7 @@ export default function Navbar() {
 
   return (
     <div>
-     <nav class="bg-[#232121] text-white">
+     <nav class="bg-[#3f757e] text-white">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-white">
             <Link href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src={logo} className="h-20 w-[300px]" alt="Flowbite Logo" />
