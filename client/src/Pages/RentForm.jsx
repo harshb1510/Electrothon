@@ -79,6 +79,7 @@ export default function RentForm() {
         available: true,
         carOwner: user.fullName,
         carOwnerEmail: user.email,
+        carOwnerId: user._id,
         availableTill,
       }),
     });

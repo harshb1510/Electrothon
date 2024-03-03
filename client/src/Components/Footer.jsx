@@ -114,7 +114,7 @@ const socialMedia = [
 ];
 
 const Footer = () => (
-  <section className={`${customStyles.flexCenter} ${customStyles.paddingY} flex-col bg-[#232121] p-6`} data-aos="fade-up">
+  <section className={`${customStyles.flexCenter} ${customStyles.paddingY} flex-col bg-[#3f757e]`} data-aos="fade-up">
     <div className={`${customStyles.flexStart} md:flex-row flex-col  w-full`}>
       <div className="flex-[1] flex flex-col justify-start mr-10">
         <h1 className='text-[42px] font-bold text-white'><img src={logo} alt="" /></h1>
