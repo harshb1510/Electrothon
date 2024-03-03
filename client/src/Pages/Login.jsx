@@ -18,7 +18,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { userName, password } = formData;
-    const res = await fetch("http://localhost:5000/users/login", {
+    const res = await fetch("http://localhost:8000/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

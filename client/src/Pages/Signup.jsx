@@ -19,7 +19,7 @@ export default function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { userName, fullName, email, password } = formData;
-    const res = await fetch("http://localhost:5000/users/register", {
+    const res = await fetch("http://localhost:8000/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

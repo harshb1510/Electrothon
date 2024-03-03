@@ -11,10 +11,16 @@ export default function RentForm() {
   const [dailyRate, setDailyRate] = useState("");
   const [availableTill, setAvailableTill] = useState("");
   const [url1, setUrl1] = useState(null);
-  const [url2, setUrl2] = useState(null);
+    const [url2, setUrl2] = useState(null);
+   
+
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+
+    const handleTimeChange = time => {
+        setSelectedTime(time);
+      };
   const handleFirstUpload = async (e) => {
     const file = e.target.files[0];
     setImage1(file);
@@ -57,7 +63,7 @@ export default function RentForm() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/listings/listNewCar", {
+    const res = await fetch("http://localhost:8000/listings/listNewCar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -180,14 +186,16 @@ export default function RentForm() {
             <div className="w-full mt-4">
               <input
                 className="block w-full px-4 py-2 mt-2 text-white placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
-                type="number"
+                type="datetime-local"
                 placeholder="Available Till"
                 aria-label="Available Till"
                 required
                 onChange={(e) => setAvailableTill(e.target.value)}
               />
             </div>
+           
 
+          
             <div className="flex items-center justify-center mt-4">
               <button
                 type="submit"
@@ -197,6 +205,7 @@ export default function RentForm() {
               </button>
             </div>
           </form>
+          
         </div>
       </div>
     </div>
