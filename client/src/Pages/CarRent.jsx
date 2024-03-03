@@ -15,6 +15,7 @@ const CarRent = () => {
       const res = await fetch("http://localhost:8000/listings/getAllCar");
       const data = await res.json();
       setCars(data);
+      console.log(data)
     } catch (error) {
       console.error("Error fetching cars:", error);
     }
