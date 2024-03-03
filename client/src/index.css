@@ -1,11 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-<<<<<<< HEAD
 
-
-
-=======
 *{
   margin: 0;
   padding: 0;
@@ -15,7 +11,6 @@
 .link{
   text-decoration: none;
 }
->>>>>>> 86886a9aa64b0ff1b41bf1491fe2b75a1b3696e0
 body{
   background:linear-gradient(90deg, rgb(14, 141, 80) 2%, rgb(23, 162, 95) 35%, rgb(9, 141, 168) 100%);
   overflow-x:hidden;
