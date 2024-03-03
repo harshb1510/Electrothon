@@ -7,26 +7,29 @@ export default function RentForm() {
   const [image2, setImage2] = useState("");
   const [location, setLocation] = useState("");
   const [kms, setKms] = useState("");
-const [hourlyRate, setHourlyRate] = useState("");
-const [dailyRate, setDailyRate] = useState("");
-const [availableTill, setAvailableTill] = useState("");
+  const [hourlyRate, setHourlyRate] = useState("");
+  const [dailyRate, setDailyRate] = useState("");
+  const [availableTill, setAvailableTill] = useState("");
   const [url1, setUrl1] = useState(null);
-    const [url2, setUrl2] = useState(null);
+  const [url2, setUrl2] = useState(null);
 
-
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const handleFirstUpload = async (e) => {
     const file = e.target.files[0];
-    setImage1(file); 
+    setImage1(file);
     const data = new FormData();
     data.append("file", file);
     data.append("upload_preset", "uploadImage");
     data.append("cloud_name", "du9foikdt");
 
     try {
-      const res = await axios.post('https://api.cloudinary.com/v1_1/du9foikdt/image/upload', data);
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/du9foikdt/image/upload",
+        data
+      );
       const cloudData = await res.data;
-      setUrl1(cloudData.url); 
+      setUrl1(cloudData.url);
       console.log(cloudData.url);
     } catch (error) {
       console.log(error);
@@ -34,31 +37,52 @@ const [availableTill, setAvailableTill] = useState("");
   };
   const handleSecondUpload = async (e) => {
     const file = e.target.files[0];
-    setImage2(file); 
+    setImage2(file);
     const data = new FormData();
     data.append("file", file);
     data.append("upload_preset", "uploadImage");
     data.append("cloud_name", "du9foikdt");
 
     try {
-      const res = await axios.post('https://api.cloudinary.com/v1_1/du9foikdt/image/upload', data);
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/du9foikdt/image/upload",
+        data
+      );
       const cloudData = await res.data;
-      setUrl2(cloudData.url); 
+      setUrl2(cloudData.url);
       console.log(cloudData.url);
     } catch (error) {
       console.log(error);
     }
-  }
-  const handleSubmit = async(e) => {
-    e.preventDefault();
-    console.log("Image uploaded",url1);
-    console.log("Image uploaded",url2);
-    
   };
-  
-  
-
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:5000/listings/listNewCar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        carName,
+        image1: url1,
+        image2: url2,
+        location,
+        kms,
+        hourlyRate,
+        dailyRate,
+        available: true,
+        carOwner: user.fullName,
+        carOwnerEmail: user.email,
+        availableTill,
+      }),
+    });
+    const data = await res.json();
+    if (data.error) {
+      console.log(data.error);
+    } else {
+      console.log(data);
+    }
+  };
 
   return (
     <div className="mt-24">
@@ -99,7 +123,7 @@ const [availableTill, setAvailableTill] = useState("");
                 onChange={handleFirstUpload}
               />
             </div>
-            
+
             <div className="w-full mt-4">
               <input
                 className="block w-full px-4 py-2 mt-2 text-white bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
@@ -165,7 +189,10 @@ const [availableTill, setAvailableTill] = useState("");
             </div>
 
             <div className="flex items-center justify-center mt-4">
-              <button type="submit" className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-cyan-500 rounded-lg hover:bg-cyan-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+              <button
+                type="submit"
+                className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-cyan-500 rounded-lg hover:bg-cyan-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
+              >
                 Sign In
               </button>
             </div>
