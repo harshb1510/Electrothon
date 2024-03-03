@@ -9,7 +9,7 @@ import CarRent from "./Pages/CarRent.jsx";
 
 
 const App = () => (
-  <div>
+  <div className="App">
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
