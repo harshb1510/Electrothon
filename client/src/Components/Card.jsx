@@ -1,36 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Carousel } from 'flowbite-react';
-const Card = ({ carName, ownerName, rentPrice, kmsTravelled, image1, image2 }) => {
-  
 
+const Card = ({ carName, ownerName, kmsTravelled, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {
   return (
-    <div className="flex justify-center">
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <div className="relative h-64">
-          {/* Carousel */}
-          <div className="carousel w-full h-full overflow-hidden relative">
-          <Carousel slideInterval={5000}>
-        <img src={image1} alt="..." />
-        <img src={image2} alt="..." />
-      </Carousel>
-          </div>
+    <div className="flex justify-center p-3">
+      <div className="max-w-lg rounded-lg  border border-gray-200 shadow-lg bg-[#3f757e] text-black">
+        <div className="relative w-full h-60">
+          <Carousel slideInterval={3000} >
+            <img src={image1} alt="Car" className="w-full h-full object-cover" />
+            <img src={image2} alt="Car" className="w-full h-full object-cover" />
+          </Carousel>
         </div>
-        <h1 className='text-center font-bold text-2xl'>{carName}</h1>
-        <div className="flex px-6 py-4">
-
-          <div className="mb-2">
-            <ul>
-                <li className='max-w-[120px] text-right'>Owner: {ownerName}</li>
-                <li>Price: {rentPrice}</li>
-                <li>Kms: {kmsTravelled}</li>
-            </ul>
+        <div className="p-6">
+          <h1 className="text-center text-2xl font-bold mb-2">{carName}</h1>
+          <hr />
+          <div className="flex justify-between pt-3  mb-4">
+            <div>
+              <p className="text-xl font-bold">{ownerName}</p>
+              <p className="text-sm">Rate: {hourlyRate}/hr</p>
+              <p className="text-sm">Kms: {kmsTravelled}</p>
+            </div>
+            <div>
+              <p className="text-sm">Location: {location}</p>
+              <p className="text-sm">Day Rate: {dailyRate}/day</p>
+              <p className="text-sm">Available Till: {availableTill}</p>
+            </div>
           </div>
-          <div>
-            <ul>
-                <li>Location: </li>
-                <li>Rating: </li>
-            </ul>
-          </div>
+          {/* You can add additional information here if needed */}
         </div>
       </div>
     </div>
