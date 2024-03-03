@@ -12,6 +12,7 @@ export default function RentForm() {
   const [availableTill, setAvailableTill] = useState("");
   const [url1, setUrl1] = useState(null);
     const [url2, setUrl2] = useState(null);
+    
    
 
 
@@ -92,7 +93,8 @@ export default function RentForm() {
   };
 
   return (
-    <div className="mt-24">
+    <div className="">
+    <div className="mt-12 " >
       <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div className="px-6 py-8">
           <div className="flex justify-center mx-auto">
@@ -209,6 +211,7 @@ export default function RentForm() {
           
         </div>
       </div>
+    </div>
     </div>
   );
 }
