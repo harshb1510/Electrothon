@@ -15,7 +15,7 @@ app.use(
 const userRoutes = require("./routes/userRoutes");
 const listingRoutes = require("./routes/listingRoutes.js");
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 dbConnect();
 
 app.get("/", async (req, res) => {
