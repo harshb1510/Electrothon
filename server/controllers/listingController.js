@@ -59,16 +59,31 @@ const myCar = async (req, res) => {
   }
 };
 
-const removeCar=async(req,res)=>{
-  try{
-    const id=req.body;
+const removeCar = async (req, res) => {
+  try {
+    const id = req.body.id;
     console.log(id);
-    const removeCar = await List.findById(id);
-
-  }catch(error){
+    const car = await List.findById(id);
+    if (car) {
+      console.log("Car found");
+      if (car.available) {
+        car.available = false;
+      } else {
+        car.available = true;
+      }
+      await car.save();
+      console.log("Car updated successfully");
+      res.status(200).json({ message: "Car updated successfully" ,available: car.available});
+    } else {
+      console.log("Car not found");
+    }
+  
+  } catch (error) {
     res.status(500).json({ error: error.message });
-}
-}
+  }
+};
+
+
 
 module.exports = {
   listNewCar,

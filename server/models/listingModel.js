@@ -37,6 +37,10 @@ const listingSchema = new mongoose.Schema({
   availableTill: {
     type: String,
   },
+  onRent: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = new mongoose.model("listingDatas", listingSchema);

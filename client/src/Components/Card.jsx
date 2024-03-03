@@ -1,9 +1,13 @@
 import React from 'react';
 import { Carousel } from 'flowbite-react';
 import axios from 'axios';
+import { useState } from 'react';
+
 
 
 const Card = ({ id,carName, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {
+ 
+  const [caravailable, setCarAvailable] = useState(available);
   const user = JSON.parse(localStorage.getItem("user"));
 
   const handleClick = async(id) => {
@@ -15,7 +19,13 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
         "x-auth-token":user.email
       }
     });
-    console.log(res.data);
+    console.log(res.data.available);
+    if (res.data.available !== undefined) {
+      setCarAvailable(res.data.available);
+    }
+    if(available){
+
+    }
     
     }
   
@@ -42,7 +52,8 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
               <p className="text-sm">Location: {location}</p>
               <p className="text-sm">Day Rate: {dailyRate}/day</p>
               <p className="text-sm">Available Till: {availableTill}</p>
-              <button onClick={() => handleClick(id)}>OFF</button>
+              
+              <button onClick={() => handleClick(id)}>{caravailable ? "OFF" : "ON"}</button>
             </div>
           </div>
           {/* You can add additional information here if needed */}
