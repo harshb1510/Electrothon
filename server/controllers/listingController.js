@@ -49,7 +49,18 @@ const getAllCar = async (req, res) => {
   }
 };
 
+const myCar = async (req, res) => {
+  try {
+    const carOwnerEmail = req.headers["x-auth-token"];
+    const cars = await List.find({ carOwnerEmail });
+    res.status(200).json(cars);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
 module.exports = {
   listNewCar,
   getAllCar,
+  myCar,
 };
