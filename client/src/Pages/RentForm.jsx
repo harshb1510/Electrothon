@@ -1,5 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import TimePicker from 'react-time-picker';
+import 'react-time-picker/dist/TimePicker.css';
 
 export default function RentForm() {
   const [carName, setCarName] = useState("");
@@ -12,9 +16,15 @@ const [dailyRate, setDailyRate] = useState("");
 const [availableTill, setAvailableTill] = useState("");
   const [url1, setUrl1] = useState(null);
     const [url2, setUrl2] = useState(null);
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [selectedTime, setSelectedTime] = useState('00:00');
 
 
 
+
+    const handleTimeChange = time => {
+        setSelectedTime(time);
+      };
   const handleFirstUpload = async (e) => {
     const file = e.target.files[0];
     setImage1(file); 
@@ -53,8 +63,12 @@ const [availableTill, setAvailableTill] = useState("");
     e.preventDefault();
     console.log("Image uploaded",url1);
     console.log("Image uploaded",url2);
-    
+    console.log("Car Name",availableTill);
+
+
   };
+
+  
   
   
 
@@ -156,20 +170,23 @@ const [availableTill, setAvailableTill] = useState("");
             <div className="w-full mt-4">
               <input
                 className="block w-full px-4 py-2 mt-2 text-white placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
-                type="number"
+                type="datetime-local"
                 placeholder="Available Till"
                 aria-label="Available Till"
                 required
                 onChange={(e) => setAvailableTill(e.target.value)}
               />
             </div>
+           
 
+          
             <div className="flex items-center justify-center mt-4">
               <button type="submit" className="px-6 py-2 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-cyan-500 rounded-lg hover:bg-cyan-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                 Sign In
               </button>
             </div>
           </form>
+          
         </div>
       </div>
     </div>
