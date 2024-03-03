@@ -7,7 +7,7 @@ const Hero = () => {
     <section id='home' className="flex justify-between items-center px-6 py-10 bg-[#232121]">
       <div className="flex flex-col flex-1">
         <div className="mb-8">
-          <h1 className="font-poppins font-semibold text-4xl md:text-6xl text-white leading-snug">
+          <h1 className="font-poppins font-semibold  text-6xl text-white leading-snug">
             Discover the <br className="sm:hidden" /> 
             <span className="text-gradient">Ultimate </span> 
             Car Rental Experience
