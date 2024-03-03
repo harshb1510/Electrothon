@@ -4,7 +4,7 @@ import hero from '../assets/Hero.png';
 
 const Hero = () => {
   return (
-    <section id='home' className="flex justify-between items-center px-6 py-10 bg-[#363535]">
+    <section id='home' className="flex justify-between items-center px-6 py-10 bg-[#232121]">
       <div className="flex flex-col flex-1">
         <div className="mb-8">
           <h1 className="font-poppins font-semibold text-4xl md:text-6xl text-white leading-snug">

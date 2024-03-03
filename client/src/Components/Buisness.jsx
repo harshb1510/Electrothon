@@ -68,10 +68,10 @@ const FeatureCard = ({ icon, title, content, index }) => (
 );
 
 const Business = () =>  (
-  <section id="features" className={`${layout.section} p-[100px] text-white bg-[#363535]`} data-aos="fade-up">
+  <section id="features" className={`${layout.section} p-[100px] text-white bg-[#232121]`} data-aos="fade-up">
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-      Find Your Perfect Ride <br className="sm:block hidden" /> with Us
+      Find Your Perfect Ride  with Us
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
       Discover a seamless car rental and parking experience with our platform. Choose from a wide range of vehicles, find convenient parking spots, and enjoy secure payment options.
