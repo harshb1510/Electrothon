@@ -4,6 +4,7 @@ import { Route,BrowserRouter as Router, Routes } from "react-router-dom";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import RentForm from "./Pages/RentForm";
+import CarRent from "./Pages/CarRent.jsx";
 
 
 
@@ -14,7 +15,8 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<Signup/>} />
-        <Route path='/rent' element={<RentForm/>} />
+        <Route path='/lend' element={<RentForm/>} />
+        <Route path='/rent' element={<CarRent/>} />
       </Routes>
     </Router>
   </div>

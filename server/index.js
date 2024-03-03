@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
 });
 
 app.use("/users", userRoutes);
-
+app.use("/listings", listingRoutes);
 
 const server = app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
