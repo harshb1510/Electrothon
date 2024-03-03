@@ -9,7 +9,7 @@ const CarRent = () => {
   }, []);
 
   const getCars = async () => {
-    const res = await fetch("http://localhost:5000/listings/getAllCar");
+    const res = await fetch("http://localhost:8000/listings/getAllCar");
     const data = await res.json();
     setCars(data);
     console.log(data);
