@@ -59,8 +59,20 @@ const myCar = async (req, res) => {
   }
 };
 
+const removeCar=async(req,res)=>{
+  try{
+    const id=req.body;
+    console.log(id);
+    const removeCar = await List.findById(id);
+
+  }catch(error){
+    res.status(500).json({ error: error.message });
+}
+}
+
 module.exports = {
   listNewCar,
   getAllCar,
   myCar,
+  removeCar
 };

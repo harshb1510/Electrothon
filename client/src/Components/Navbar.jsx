@@ -27,7 +27,7 @@ export default function Navbar() {
               Parking
             </Link>
             <Link
-              href="#"
+              to="/rental"
               className="text-[20px]  cursor-pointer hover:underline"
             >
               Rental

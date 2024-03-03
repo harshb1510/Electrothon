@@ -31,7 +31,7 @@ const CarRent = () => {
         ownerName={car.carOwner}
         dailyRate={car.dailyRate}
         hourlyRate={car.hourlyRate}
-        kmsTraveled={car.kms}
+        kms={car.kms}
         image1={car.image1} 
         image2={car.image2} 
         location={car.location}
