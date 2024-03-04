@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 
 
-const Card = ({ id,carName, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {
+const Card = ({ id,carName, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location,rent }) => {
  
   const [caravailable, setCarAvailable] = useState(available);
   const user = JSON.parse(localStorage.getItem("user"));
@@ -54,9 +54,11 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
               <p className="text-sm">Day Rate: {dailyRate}/day</p>
               <p className="text-sm">Available Till: {availableTill}</p>
               
-              <button onClick={() => handleClick(id)}>{caravailable ? "OFF" : "ON"}</button>
             </div>
           </div>
+          {!rent?(
+          <button className='bg-white text-center ml-8 mt-2 p-1 rounded-md' onClick={() => handleClick(id)}>{caravailable ? "Remove from List" : "Add in List"}</button>
+          ):"Your Car in on Rent"}
         </div>
       </div>
     </div>

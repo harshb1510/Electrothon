@@ -86,15 +86,15 @@ export default function Login() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  class=" hover:bg-blue-800 w-full text-white bg-blue-900 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  class=" hover:bg-blue-800 w-full text-white bg-b-900 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
-                  Create an account
+                  Login
                 </button>
                 <p class="text-sm  mr-2 font-light flex justify-center text-gray-500 dark:text-gray-400">
                   Don't Have Account? {" "}
                   <Link
                     to="/signup"
-                    class=" hover:text-blue-800 font-medium text-blue-900 hover:underline ml-2 dark:text-primary-500"
+                    class=" hover:text-cyan-600 font-medium text-cyan-900 hover:underline ml-2 dark:text-primary-500"
                   >
                     Signup Here
                   </Link>

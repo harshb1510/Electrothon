@@ -70,6 +70,7 @@ const MyCar = () => {
             available={car.available}
             availableTill={car.availableTill}
             id={car._id}
+            rent={car.onRent}
           />
         ))}
       </div>

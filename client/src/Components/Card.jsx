@@ -2,23 +2,10 @@ import React from "react";
 import { Carousel } from "flowbite-react";
 import BookingModal from "./BookingModal";
 import axios from "axios";
-import { useState } from "react";
 
-const Card = ({
-  id,
-  carName,
-  ownerName,
-  carOwnerId,
-  kms,
-  image1,
-  image2,
-  available,
-  availableTill,
-  dailyRate,
-  hourlyRate,
-  location,
-}) => {
 
+
+const Card = ({ id,carName,carOwnerId, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {  
   return (
     <div className="flex justify-center p-3">
       <div className="max-w-lg rounded-lg  border border-gray-200 shadow-lg bg-[#3f757e] text-black">
