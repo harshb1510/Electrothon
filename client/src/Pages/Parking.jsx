@@ -19,7 +19,7 @@ const Parking = () => {
   return (
     <>
       {/* <Navbar/> */}
-      <Navbar/>
+      <Navbar />
       <br className="border" />
       {/* <Hero/> */}
       <section
@@ -61,7 +61,7 @@ const Parking = () => {
         <div>
           <div className="flex justify-center items-center ">
             <div className="flex flex-col items-center">
-              <h2 className="font-poppins font-semibold text-3xl text-white mb-2">
+              <h2 className="font-poppins font-semibold text-3xl leading-snug text-white mb-2">
                 How it works
               </h2>
               <p className="text-center text-lg text-white">
@@ -118,8 +118,7 @@ const Parking = () => {
           </div>
         </div>
       </section>
-        {/*/ ReasonToLove */}
-        
+      {/*/ ReasonToLove */}
     </>
   );
 };
