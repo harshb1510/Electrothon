@@ -55,7 +55,8 @@ export default function BookingModal({
     const data = await user.json();
     console.log(data.user.wallet);
     const cryptoAddress = data.user.wallet;
-    makeCryptoPayment(cryptoAddress, cryptoAmount);
+    await makeCryptoPayment(cryptoAddress, cryptoAmount);
+    
   };
 
   const initPayment = (data) => {

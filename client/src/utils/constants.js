@@ -14,16 +14,18 @@ async function makeCryptoPayment(receiverAddress, amount) {
   console.log(receiverAddress, amount);
   const amountCrypto = amount / 10 ** 18;
   const accounts = await web3.eth.getAccounts();
+
   const amountInWei = web3.utils.toWei(amountCrypto.toString(), 'ether');
 
-const transaction = await transactionsContract.methods
-    .addToBlockchain(receiverAddress, amountCrypto)
-    .send({
-        from: accounts[0],
-        value: amountInWei,
-    });
+  const transaction = await transactionsContract.methods.addToBlockchain(receiverAddress, amount)
+      .send({
+          from: accounts[0],
+          value: amountInWei
+      });
+  
 
   console.log("Transaction Hash:", transaction.transactionHash);
+
 }
 
 export default makeCryptoPayment;
