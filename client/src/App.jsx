@@ -7,6 +7,7 @@ import RentForm from "./Pages/RentForm";
 import CarRent from "./Pages/CarRent.jsx";
 import MyCar from "./Pages/myCar.jsx";
 import RentalCard from "./Pages/RentalCard.jsx";
+import Parking from "./Pages/Parking.jsx";
 
 const App = () => (
   <div className="App">
@@ -19,6 +20,7 @@ const App = () => (
         <Route path="/rent" element={<CarRent />} />
         <Route path="/myCar" element={<MyCar />} />
         <Route path='/rental' element={<RentalCard />} />
+        <Route path = '/parking' element={<Parking />} />
       </Routes>
     </Router>
   </div>
