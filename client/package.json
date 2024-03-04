@@ -20,6 +20,7 @@
     "@react-spring/web": "^9.7.3",
     "axios": "^1.6.7",
     "dayjs": "^1.11.10",
+    "ethers": "^6.11.1",
     "flowbite-react": "^0.7.2",
     "jwt-decode": "^4.0.0",
     "razorpay": "^2.9.2",

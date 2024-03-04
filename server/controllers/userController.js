@@ -54,6 +54,29 @@ const getUser = async (req, res) => {
   }
 };
 
+const addWallet = async (req, res) => {
+  try {
+    const userId = req.headers["x-auth-token"];
+    if (userId) {
+      const wallet = req.body.wallet;
+      const updateResult = await User.updateOne({ _id: userId }, { wallet });
+      const user = await User.findOne({ _id: userId });
+      if (updateResult.modifiedCount > 0) {
+        return res.status(200).send({ user });
+      } else {
+        return res
+          .status(404)
+          .send({ error: "No matching record found or no changes made." });
+      }
+    } else {
+      return res.status(401).send({ error: "User Not Found...!" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send({ error });
+  }
+};
+
 const updatePassword = async (req, res) => {
   const id = req.body.id;
   const { oldPassword, confirmnewPassword } = req.body.formData;
@@ -102,6 +125,7 @@ module.exports = {
   loginUser,
   registerUser,
   getUser,
+  addWallet,
   updatePassword,
   updateProfile,
 };
