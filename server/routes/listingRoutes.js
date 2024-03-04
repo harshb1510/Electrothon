@@ -5,6 +5,7 @@ const {
   myCar,
   removeCar,
   saveBooking,
+  saveWallet,
 } = require("../controllers/listingController.js");
 const { addBooking, verifyPayment } = require("../controllers/PaymentController.js");
 
@@ -16,6 +17,7 @@ router.route("/myCar").get(myCar);
 router.route("/removeCar").post(removeCar);
 router.route("/bookings/addBooking").post(addBooking);
 router.route("/bookings/saveBooking").post(saveBooking);
+router.route("/bookings/saveWallet").post(saveWallet);
 router.route("/verify").post(verifyPayment);
 
 

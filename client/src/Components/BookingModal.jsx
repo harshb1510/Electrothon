@@ -53,10 +53,19 @@ export default function BookingModal({
       },
     });
     const data = await user.json();
-    console.log(data.user.wallet);
     const cryptoAddress = data.user.wallet;
     await makeCryptoPayment(cryptoAddress, cryptoAmount);
-    
+
+    const saveWallet = await axios.post(
+      "http://localhost:8000/listings/bookings/saveWallet",
+      {
+        id,
+        carOwnerId,
+        cryptoAmount,
+      }
+    );
+    console.log(saveWallet);
+    history("/");
   };
 
   const initPayment = (data) => {

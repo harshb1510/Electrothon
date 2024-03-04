@@ -94,10 +94,26 @@ const saveBooking = async (req, res) => {
   });
 };
 
+const saveWallet = async (req, res) => {
+  const { id, carOwnerId, cryptoAmount } = req.body;
+  const booking = await List.findById(id);
+  booking.onRent = true;
+  const user = await User.findById(carOwnerId);
+  const previousAmount = user.cryptoAmount;
+  user.cryptoAmount = cryptoAmount + previousAmount;
+  await user.save();
+  await booking.save();
+  res.status(201).json({
+    message: "Booking Saved",
+  });
+}
+
+
 module.exports = {
   listNewCar,
   getAllCar,
   myCar,
   removeCar,
   saveBooking,
+  saveWallet,
 };
