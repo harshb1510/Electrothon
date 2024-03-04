@@ -41,6 +41,14 @@ const userSchema = mongoose.Schema({
     type: String,
     default: "",
   },
+  amountEarned: {
+    type: Number,
+    default: 0,
+  },
+  cryptoAmount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 userSchema.methods.matchPassword = async function (enteredPassword) {

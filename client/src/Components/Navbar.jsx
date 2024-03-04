@@ -16,7 +16,7 @@ export default function Navbar() {
     <div>
      <nav class="bg-[#3f757e] text-white">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-white">
-            <Link href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <Link to='/' class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src={logo} className="h-20 w-[300px]" alt="Flowbite Logo" />
             </Link>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
@@ -32,11 +32,15 @@ export default function Navbar() {
             >
               Rental
             </Link>
+           
             {isLoggedIn ? (
               <>
+              <Link to='/myCar'>
                 <span className="text-[20px]  cursor-pointer hover:underline">
                   Hii !! {user && user.userName ? user.userName : ""}
                 </span>{" "}
+                </Link>
+
                 <button
                   onClick={handleLogout}
                   className="text-[20px]  cursor-pointer hover:underline"
@@ -44,6 +48,7 @@ export default function Navbar() {
                   Logout
                 </button>
               </>
+
             ) : (
               <>
                 <Link

@@ -24,6 +24,7 @@ const CarRent = () => {
   return (
     <>
     <Navbar/>
+    <h1 className="text-4xl text-white font-bold p-4">Available Cars for Rent</h1>
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-12">
       {cars.map((car) => (
         <Card
@@ -38,6 +39,8 @@ const CarRent = () => {
         location={car.location}
         available={car.available}
         availableTill={car.availableTill}
+        carOwnerId={car.carOwnerId}
+        id={car._id}
         />
         ))}
     </div>

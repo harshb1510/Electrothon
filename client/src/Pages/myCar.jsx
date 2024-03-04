@@ -45,11 +45,14 @@ const MyCar = () => {
   return (
     <>
       {user.wallet || account ? (
-    <h1>{user.wallet || account}</h1>
-  ) : (
-    <button onClick={handleConnect}>Connect Wallet</button>
-  )}
+        <h1>{user.wallet || account}</h1>
+      ) : (
+        <button onClick={handleConnect}>Connect Wallet</button>
+      )}
+      <h3>Amount Earned via UPI: {user.amountEarned}</h3>
+      <h3>Amount Earned via Crypto : {user.cyptoAmount}</h3>
 
+      <h1 className="text-4xl text-center font-bold p-12">My Cars</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-12">
         {cars.map((car) => (
@@ -57,6 +60,7 @@ const MyCar = () => {
             key={car._id}
             carName={car.carName}
             ownerName={car.carOwner}
+            carOwnerId={car.carOwnerId}
             dailyRate={car.dailyRate}
             hourlyRate={car.hourlyRate}
             kms={car.kms}
@@ -66,6 +70,7 @@ const MyCar = () => {
             available={car.available}
             availableTill={car.availableTill}
             id={car._id}
+            rent={car.onRent}
           />
         ))}
       </div>
