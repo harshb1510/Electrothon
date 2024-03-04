@@ -147,7 +147,8 @@ export default function BookingModal({ availableTill, dailyRate, hourlyRate }) {
             </LocalizationProvider>
             <p>Total hours:{hours}</p>
             <p>Rent Price:{rentPrice}</p>
-            <button onClick={handleProceed}>Proceed</button> 
+            <button onClick={handleProceed}>Pay via Razorpay</button> 
+            <button >Pay via Wallet</button> 
           </ModalContent>
         </Fade>
       </Modal>
