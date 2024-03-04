@@ -39,6 +39,8 @@ const CarRent = () => {
         location={car.location}
         available={car.available}
         availableTill={car.availableTill}
+        carOwnerId={car.carOwnerId}
+        id={car._id}
         />
         ))}
     </div>

@@ -1,4 +1,5 @@
 const List = require("../models/listingModel.js");
+const User = require("../models/userModel.js");
 
 const listNewCar = async (req, res) => {
   const {
@@ -42,12 +43,13 @@ const listNewCar = async (req, res) => {
 
 const getAllCar = async (req, res) => {
   try {
-    const cars = await List.find({ available: true });
+    const cars = await List.find({ available: true, onRent: false });
     res.status(200).json(cars);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
+
 
 const myCar = async (req, res) => {
   try {
@@ -73,23 +75,29 @@ const removeCar = async (req, res) => {
       res.status(200).json({ message: "Car updated successfully" ,available: car.available});
     } else {
     }
-  
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-const addBooking = async()=>{
-  try{
-    
-  }catch(err){
-    console.log(error)
-  }
-}
+const saveBooking = async (req, res) => {
+  const { id, carOwnerId, rentPrice } = req.body;
+  const booking = await List.findById(id);
+  booking.onRent = true;
+  const user = await User.findById(carOwnerId);
+  const previousAmount = user.amountEarned;
+  user.amountEarned = rentPrice + previousAmount;
+  await user.save();
+  await booking.save();
+  res.status(201).json({
+    message: "Booking Saved",
+  });
+};
 
 module.exports = {
   listNewCar,
   getAllCar,
   myCar,
-  removeCar
+  removeCar,
+  saveBooking,
 };
