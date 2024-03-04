@@ -1,19 +1,39 @@
-import React from 'react';
-import { Carousel } from 'flowbite-react';
-import BookingModal from './BookingModal';
-import axios from 'axios';
-import { useState } from 'react';
+import React from "react";
+import { Carousel } from "flowbite-react";
+import BookingModal from "./BookingModal";
+import axios from "axios";
+import { useState } from "react";
 
+const Card = ({
+  id,
+  carName,
+  ownerName,
+  carOwnerId,
+  kms,
+  image1,
+  image2,
+  available,
+  availableTill,
+  dailyRate,
+  hourlyRate,
+  location,
+}) => {
 
-
-const Card = ({ id,carName, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {  
   return (
     <div className="flex justify-center p-3">
       <div className="max-w-lg rounded-lg  border border-gray-200 shadow-lg bg-[#3f757e] text-black">
         <div className="relative w-full h-60">
-          <Carousel slideInterval={3000} >
-            <img src={image1} alt="Car" className="w-full h-full object-cover" />
-            <img src={image2} alt="Car" className="w-full h-full object-cover" />
+          <Carousel slideInterval={3000}>
+            <img
+              src={image1}
+              alt="Car"
+              className="w-full h-full object-cover"
+            />
+            <img
+              src={image2}
+              alt="Car"
+              className="w-full h-full object-cover"
+            />
           </Carousel>
         </div>
         <div className="p-6 ">
@@ -29,11 +49,15 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
               <p className="text-sm">Location: {location}</p>
               <p className="text-sm">Day Rate: {dailyRate}/day</p>
               <p className="text-sm">Available Till: {availableTill}</p>
-              
             </div>
           </div>
-         <BookingModal availableTill={availableTill}  dailyRate={dailyRate}
-        hourlyRate={hourlyRate} />
+          <BookingModal
+            availableTill={availableTill}
+            dailyRate={dailyRate}
+            hourlyRate={hourlyRate}
+            carOwnerId={carOwnerId}
+            id={id}
+          />
         </div>
       </div>
     </div>
