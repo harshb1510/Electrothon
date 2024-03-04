@@ -14,6 +14,16 @@ const addSlot = async (req, res) => {
   }
 };
 
+const allSlot = async (req, res) => {
+  const slot = await Slot.find();
+  if (slot) {
+    res.status(200).json(slot);
+  } else {
+    res.status(400);
+  }
+};
+
 module.exports = {
   addSlot,
+  allSlot,
 };
