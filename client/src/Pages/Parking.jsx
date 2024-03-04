@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 import Step1 from "../assets/Step1.png";
 import Step2 from "../assets/Step2.png";
 import Step3 from "../assets/Step3.png";
+import Navbar from "../Components/Navbar";
 
 const Parking = () => {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -18,66 +19,7 @@ const Parking = () => {
   return (
     <>
       {/* <Navbar/> */}
-      <section>
-        <div>
-          <nav class="bg-[#3f757e] text-white">
-            <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-white">
-              <Link
-                href="https://flowbite.com"
-                class="flex items-center space-x-3 rtl:space-x-reverse"
-              >
-                <img
-                  src={logo}
-                  className="h-20 w-[300px]"
-                  alt="Flowbite Logo"
-                />
-              </Link>
-              <div className="flex items-center space-x-6 rtl:space-x-reverse">
-                <Link
-                  href="#"
-                  className="text-[20px]  cursor-pointer hover:underline"
-                >
-                  Parking
-                </Link>
-                <Link
-                  to="/rental"
-                  className="text-[20px]  cursor-pointer hover:underline"
-                >
-                  Rental
-                </Link>
-                {isLoggedIn ? (
-                  <>
-                    <span className="text-[20px]  cursor-pointer hover:underline">
-                      Hii !! {user && user.userName ? user.userName : ""}
-                    </span>{" "}
-                    <button
-                      onClick={handleLogout}
-                      className="text-[20px]  cursor-pointer hover:underline"
-                    >
-                      Logout
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <Link
-                      to="/login"
-                      className="text-[20px]  cursor-pointer hover:underline"
-                    >
-                      Login
-                    </Link>
-                    <Link
-                      to="/signup"
-                      className="text-[20px]  cursor-pointer hover:underline"
-                    >
-                      Signup
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
-          </nav>
-        </div>
-      </section>
+      <Navbar/>
       <br className="border" />
       {/* <Hero/> */}
       <section

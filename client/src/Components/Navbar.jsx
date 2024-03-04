@@ -17,11 +17,11 @@ export default function Navbar() {
      <nav class="bg-[#3f757e] text-white">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-white">
             <Link to='/' class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src={logo} className="h-20 w-[300px]" alt="Flowbite Logo" />
+                <img src={logo} className="h-20 w-[300px]" alt="Park&Go Logo" />
             </Link>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
             <Link
-              href="#"
+              to='/parking'
               className="text-[20px]  cursor-pointer hover:underline"
             >
               Parking
