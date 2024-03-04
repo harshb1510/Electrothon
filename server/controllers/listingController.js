@@ -62,20 +62,16 @@ const myCar = async (req, res) => {
 const removeCar = async (req, res) => {
   try {
     const id = req.body.id;
-    console.log(id);
     const car = await List.findById(id);
     if (car) {
-      console.log("Car found");
       if (car.available) {
         car.available = false;
       } else {
         car.available = true;
       }
       await car.save();
-      console.log("Car updated successfully");
       res.status(200).json({ message: "Car updated successfully" ,available: car.available});
     } else {
-      console.log("Car not found");
     }
   
   } catch (error) {
@@ -83,7 +79,13 @@ const removeCar = async (req, res) => {
   }
 };
 
-
+const addBooking = async()=>{
+  try{
+    
+  }catch(err){
+    console.log(error)
+  }
+}
 
 module.exports = {
   listNewCar,

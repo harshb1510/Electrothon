@@ -17,12 +17,12 @@ export default function RentalCard() {
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-cyan-500 dark:text-white">Lend your Vehicle</h5>
         </a>
         <h1 className='text-white mb-4'>"Monetize your idle car by listing it on our platform for others to rent, earning you extra income effortlessly."</h1>
-        <a href="#" class="inline-flex items-center  px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            For More
+        <Link to="/lend" class="inline-flex items-center  px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Lend
              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>
-        </a>
+        </Link>
     </div>
 </div>
 <div class="max-w-sm bg-gray-700 border cursor-pointer hover:opacity-90 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -35,8 +35,8 @@ export default function RentalCard() {
         </Link>
         <h1 className='text-white mb-4'>"Explore a wide range of vehicles available for rent, with flexible options to suit your needs and budget."
 </h1>
-        <Link to='' class="inline-flex bg-cyan-500 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
-            For More
+        <Link to='/rent' class="inline-flex bg-cyan-500 items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 ">
+           Rent
              <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
             </svg>

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import Card from "../Components/Card";
+import Card from "../Components/myCarCard";
 
 const MyCar = () => {
   const [cars, setCars] = useState([]);
@@ -66,6 +66,7 @@ const MyCar = () => {
             available={car.available}
             availableTill={car.availableTill}
             id={car._id}
+            rent={car.onRent}
           />
         ))}
       </div>
