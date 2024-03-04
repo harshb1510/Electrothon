@@ -58,7 +58,12 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
           </div>
           {!rent?(
           <button className='bg-white text-center ml-8 mt-2 p-1 rounded-md' onClick={() => handleClick(id)}>{caravailable ? "Remove from List" : "Add in List"}</button>
-          ):"Your Car in on Rent"}
+          ):(
+            <h1 className='font-bold text-lg text-white'>
+              Your Car in on Rent
+            </h1>
+          )
+          }
         </div>
       </div>
     </div>

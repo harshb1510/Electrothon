@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../Components/Navbar";
 
 export default function RentForm() {
   const [carName, setCarName] = useState("");
@@ -97,8 +98,10 @@ export default function RentForm() {
   };
 
   return (
+
     <div className="">
-    <div className="mt-12 " >
+      <Navbar/>
+    <div className="mt-8 mb-4 " >
       <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
         <div className="px-6 py-8">
 

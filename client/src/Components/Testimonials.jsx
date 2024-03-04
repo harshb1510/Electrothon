@@ -1,7 +1,7 @@
 import FeedbackCard from "./FeedbackCard";
-import people01 from "../assets/people01.png";
-import people02 from "../assets/people02.png";
-import people03 from "../assets/people03.png";
+import person1 from "../assets/person1.jpeg";
+import person2 from "../assets/person2.jpeg";
+import person3 from "../assets/person3.jpeg";
 
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
@@ -24,25 +24,25 @@ const feedback = [
     id: "feedback-1",
     content:
       "Their car rental service is exceptional. It made my trip hassle-free and enjoyable.",
-    name: "Hannah Smith",
+    name: "Radhika Merchant",
     title: "Frequent Traveler",
-    img: people01,
+    img: person1,
   },
   {
     id: "feedback-2",
     content:
       "Finding parking has never been easier with their platform. It saved me a lot of time and stress.",
-    name: "John Doe",
+    name: "Mark Zuckerberg",
     title: "Daily Commuter",
-    img: people02,
+    img: person2,
   },
   {
     id: "feedback-3",
     content:
       "I highly recommend their car rental and parking services. Professional and reliable.",
-    name: "Emily Johnson",
+    name: "Elon Musk",
     title: "Happy Customer",
-    img: people03,
+    img: person3,
   },
 ];
 
