@@ -12,11 +12,8 @@ const transactionsContract = new web3.eth.Contract(
 
 async function makeCryptoPayment(receiverAddress, amount) {
   console.log(receiverAddress, amount);
-  const amountCrypto = amount / 10 ** 18;
   const accounts = await web3.eth.getAccounts();
-
-  const amountInWei = web3.utils.toWei(amountCrypto.toString(), 'ether');
-
+  const amountInWei = web3.utils.toWei(amount.toString(), 'ether');
   const transaction = await transactionsContract.methods.addToBlockchain(receiverAddress, amount)
       .send({
           from: accounts[0],
