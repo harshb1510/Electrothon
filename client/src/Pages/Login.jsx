@@ -91,7 +91,7 @@ export default function Login() {
                   Login
                 </button>
                 <p class="text-sm  mr-2 font-light flex justify-center text-gray-500 dark:text-gray-400">
-                  Don't Have Account? {" "}
+                  Don't Have Account?{" "}
                   <Link
                     to="/signup"
                     class=" hover:text-cyan-600 font-medium text-cyan-500 hover:underline ml-2 dark:text-primary-500"
