@@ -23,9 +23,7 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
     if (res.data.available !== undefined) {
       setCarAvailable(res.data.available);
     }
-    if(available){
-
-    }
+  
     
     }
   
