@@ -6,6 +6,7 @@ import Step1 from "../assets/Step1.png";
 import Step2 from "../assets/Step2.png";
 import Step3 from "../assets/Step3.png";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const Parking = () => {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -119,7 +120,8 @@ const Parking = () => {
         </div>
       </section>
         {/*/ ReasonToLove */}
-        
+        {/* Footer */}
+        <Footer/>
     </>
   );
 };
