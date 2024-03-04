@@ -9,6 +9,7 @@ import MyCar from "./Pages/myCar.jsx";
 import RentalCard from "./Pages/RentalCard.jsx";
 import Parking from "./Pages/Parking.jsx";
 import Slot from "./Pages/Slot.jsx";
+import SlotReader from "./Pages/SlotReader.jsx";
 
 const App = () => (
   <div className="App">
@@ -23,6 +24,7 @@ const App = () => (
         <Route path='/rental' element={<RentalCard />} />
         <Route path = '/parking' element={<Parking />} />
         <Route path = '/slot' element={<Slot />} />
+        <Route path = '/slotReader' element={<SlotReader />} />
       </Routes>
     </Router>
   </div>
