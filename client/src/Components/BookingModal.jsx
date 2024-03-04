@@ -11,6 +11,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import dayjs from "dayjs";
 import axios from "axios";
+import makeCryptoPayment from "../utils/constants";
 
 export default function BookingModal({
   availableTill,
@@ -42,6 +43,21 @@ export default function BookingModal({
     loadRazorpayScript();
   }, []);
 
+  const handlePayment = async () => {
+    const cryptoAmount = rentPrice * 0.011;
+    const user = await fetch("http://localhost:8000/users/getUser", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-auth-token": carOwnerId,
+      },
+    });
+    const data = await user.json();
+    console.log(data.user.wallet);
+    const cryptoAddress = data.user.wallet;
+    makeCryptoPayment(cryptoAddress, cryptoAmount);
+  };
+
   const initPayment = (data) => {
     const options = {
       key: "rzp_test_rrpFDSyVYUuEE4",
@@ -68,6 +84,7 @@ export default function BookingModal({
             }
           );
           console.log(save);
+          history("/");
         } catch (err) {
           console.log(err);
         }
@@ -165,7 +182,7 @@ export default function BookingModal({
             <p>Total hours:{hours}</p>
             <p>Rent Price:{rentPrice} Rs.</p>
             <button onClick={handleProceed}>Pay via Razorpay</button>
-            <button>Pay via Wallet</button>
+            <button onClick={handlePayment}>Pay via Crypto</button>
           </ModalContent>
         </Fade>
       </Modal>

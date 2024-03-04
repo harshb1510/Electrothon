@@ -47,7 +47,7 @@ const getUser = async (req, res) => {
   if (userId) {
     const user = await User.findOne({ _id: userId });
     if (user) {
-      return res.status(200).send(user);
+      return res.status(200).send({ user });
     }
   } else {
     return res.status(401).send({ error: "User Not Found...!" });
