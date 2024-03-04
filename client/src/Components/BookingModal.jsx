@@ -14,7 +14,7 @@ import axios from 'axios';
 
 export default function BookingModal({ availableTill, dailyRate, hourlyRate }) {
   const [initial, setInitial] = React.useState(null);
-  const [final, setFinal] = React.useState(null); // Changed to null
+  const [final, setFinal] = React.useState(null); 
   const [open, setOpen] = React.useState(false);
   const [hours,setHours]=React.useState(0);
   const [rentPrice,setRentPrice]=React.useState(0);

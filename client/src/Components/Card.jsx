@@ -6,31 +6,7 @@ import { useState } from 'react';
 
 
 
-const Card = ({ id,carName, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {
- 
-  const [caravailable, setCarAvailable] = useState(available);
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  const handleClick = async(id) => {
-    console.log(id);
-
-    const res=await axios.post("http://localhost:8000/listings/removeCar",{id:id},{
-      headers:{
-        "Content-Type":"application/json",
-        "x-auth-token":user.email
-      }
-    });
-    console.log(res.data.available);
-    if (res.data.available !== undefined) {
-      setCarAvailable(res.data.available);
-    }
-    if(available){
-
-    }
-    
-    }
-  
-  
+const Card = ({ id,carName, ownerName, kms, image1, image2, available, availableTill, dailyRate, hourlyRate, location }) => {  
   return (
     <div className="flex justify-center p-3">
       <div className="max-w-lg rounded-lg  border border-gray-200 shadow-lg bg-[#3f757e] text-black">
@@ -54,7 +30,6 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
               <p className="text-sm">Day Rate: {dailyRate}/day</p>
               <p className="text-sm">Available Till: {availableTill}</p>
               
-              <button onClick={() => handleClick(id)}>{caravailable ? "OFF" : "ON"}</button>
             </div>
           </div>
          <BookingModal availableTill={availableTill}  dailyRate={dailyRate}
