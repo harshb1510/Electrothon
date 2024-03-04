@@ -6,6 +6,7 @@ import Step1 from "../assets/Step1.png";
 import Step2 from "../assets/Step2.png";
 import Step3 from "../assets/Step3.png";
 import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 const Parking = () => {
   const isLoggedIn = localStorage.getItem("token") !== null;
@@ -112,13 +113,12 @@ const Parking = () => {
               </p>
             </div>
           </div>
-          <div className="flex flex-row items-center justify-center">
-            {/* <Image src={StepTwo} alt="Step Two" width={300} height={300} />
-            <Image src={StepThree} alt="Step Three" width={300} height={300} /> */}
-          </div>
+          
         </div>
       </section>
-      {/*/ ReasonToLove */}
+        {/*/ ReasonToLove */}
+        {/* Footer */}
+        <Footer/>
     </>
   );
 };

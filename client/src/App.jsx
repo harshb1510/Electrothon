@@ -9,6 +9,10 @@ import MyCar from "./Pages/myCar.jsx";
 import RentalCard from "./Pages/RentalCard.jsx";
 import Parking from "./Pages/Parking.jsx";
 import Slot from "./Pages/Slot.jsx";
+import SlotReader from "./Pages/SlotEntry.jsx";
+import SlotEntry from "./Pages/SlotEntry.jsx";
+import SlotExit from "./Pages/SlotExit.jsx";
+import Admin from "./Pages/Admin.jsx";
 
 const App = () => (
   <div className="App">
@@ -21,8 +25,11 @@ const App = () => (
         <Route path="/rent" element={<CarRent />} />
         <Route path="/myCar" element={<MyCar />} />
         <Route path='/rental' element={<RentalCard />} />
-        <Route path = '/parking' element={<Parking />} />
-        <Route path = '/slot' element={<Slot />} />
+        <Route path ='/parking' element={<Parking />} />
+        <Route path ='/slot' element={<Slot />} />
+        <Route path ='/slotentry' element={<SlotEntry />} />
+        <Route path ='/slotexit' element={<SlotExit />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   </div>
