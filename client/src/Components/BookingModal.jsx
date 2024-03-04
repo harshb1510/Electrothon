@@ -10,27 +10,105 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import dayjs from 'dayjs';
+import axios from 'axios';
 
-export default function BookingModal({availableTill}) {
+export default function BookingModal({ availableTill, dailyRate, hourlyRate }) {
+  const [initial, setInitial] = React.useState(null);
   const [final, setFinal] = React.useState(null); // Changed to null
   const [open, setOpen] = React.useState(false);
+  const [hours,setHours]=React.useState(0);
+  const [rentPrice,setRentPrice]=React.useState(0);
 
   const history = useNavigate();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const calculateHours = () => {
-    const initial = dayjs(new Date());
-    const difference = final.diff(initial, 'hour');
-    return difference;
+  React.useEffect(() => {
+    const loadRazorpayScript = async () => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js"; 
+      script.async = true;
+      script.onload = () => {};
+      document.body.appendChild(script);
+    };
+
+    loadRazorpayScript();
+}, []);
+
+  const initPayment = (data) => {
+    const options = {
+      key: "rzp_test_rrpFDSyVYUuEE4",
+      amount: data.amount,
+      currency: data.currency,
+      order_id: data.orderDetails.razorpayOrderId,
+      handler: async (response) => {
+        try {
+          const verifyUrl = `http://localhost:8000/listings/verify`;
+  
+          const verifyData = {
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+          };
+          await axios.post(verifyUrl, verifyData);
+          history('/');
+        } catch (err) {
+          console.log(err);
+        }
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
   };
 
-  const handleProceed = () => {
-    const hours = calculateHours();
-    console.log(hours)
-    // history(`/payment`); // Change route to payment page and send hours data
+  const calculateHours = () => {
+    if (final && initial) {
+      const initialDate = new Date(initial); 
+      const finalDate = new Date(final);
+      const differenceInMs = finalDate - initialDate;
+      console.log(differenceInMs)
+      const differenceInHours = differenceInMs / (1000 * 60 * 60); 
+      return parseInt(differenceInHours);
+    } else {
+      return 0;
+    }
   };
+  
+  
+
+  const calculateRentPrice = (hours) => {
+    if (hours < 24) {
+      return hours * hourlyRate;
+    } else {
+      const fullDays = Math.floor(hours / 24);
+      const remainingHours = hours % 24;
+      return parseInt(fullDays * dailyRate + remainingHours * hourlyRate);
+    }
+  };
+
+  const handleProceed = async () => {
+    try {
+        const response = await axios.post('http://localhost:8000/listings/bookings/addBooking',{ 
+                hours,
+                rentPrice}
+        );
+        initPayment(response.data);
+        
+    } catch (error) {
+        console.log(error)
+    } 
+  };
+
+  React.useEffect(() => {
+    const hours = calculateHours();
+    const rentPrice = calculateRentPrice(hours);
+    setHours(hours)
+    setRentPrice(rentPrice)
+  })
 
   return (
     <div>
@@ -54,6 +132,7 @@ export default function BookingModal({availableTill}) {
                 <DateTimePicker
                   label="Initial"
                   minDate={dayjs(new Date())}
+                  onChange={(e) => setInitial(e)}
                   disablePast
                   maxDate={dayjs(availableTill)}
                 />
@@ -66,6 +145,8 @@ export default function BookingModal({availableTill}) {
                 />
               </DemoContainer>
             </LocalizationProvider>
+            <p>Total hours:{hours}</p>
+            <p>Rent Price:{rentPrice}</p>
             <button onClick={handleProceed}>Proceed</button> 
           </ModalContent>
         </Fade>
