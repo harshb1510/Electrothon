@@ -190,7 +190,9 @@ export default function BookingModal({
               </DemoContainer>
             </LocalizationProvider>
             <p>Total hours:{hours}</p>
-            <p>Rent Price:{rentPrice} Rs.</p>
+            <p>
+              Rent Price:{rentPrice} Rs. ({rentPrice * 0.011} MATIC)
+            </p>
             <button onClick={handleProceed}>Pay via Razorpay</button>
             <button onClick={handlePayment}>Pay via Crypto</button>
           </ModalContent>
