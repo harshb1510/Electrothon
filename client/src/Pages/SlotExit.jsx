@@ -3,6 +3,7 @@ import { Scanner } from "@yudiel/react-qr-scanner";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Modal } from "@mui/material";
+import makeCryptoPayment from "../utils/constants";
 
 const SlotExit = () => {
   const history = useNavigate();
@@ -90,10 +91,12 @@ const SlotExit = () => {
     handleProceed(payableAmount);
   };
 
-  const handlePayWithWallet = () => {
-    // Implement payment with wallet logic here
-    // For example, redirect to a wallet payment page
+  const handlePayWithWallet = async() => {
     setShowModal(false);
+    const cryptoAmount = payableAmount * 0.011;
+    const cryptoAddress = "0xC3385be7163DA9ee64dfE1847De5dC9c8Aa88eC0"
+    await makeCryptoPayment(cryptoAddress , cryptoAmount);
+    history("/admin");
   };
 
   return (

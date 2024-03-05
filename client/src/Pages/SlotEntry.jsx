@@ -8,10 +8,9 @@ const SlotEntry = () => {
 
   const redirect = async () => {
     history("/admin");
-  }
+  };
 
   const qrData = async (text) => {
-    
     const slotBooking = JSON.parse(text);
     const slotEntry = await fetch("http://localhost:8000/parking/slotEntry", {
       method: "POST",
@@ -31,8 +30,7 @@ const SlotEntry = () => {
     <div className="h-[400px] w-[400px] m-auto mt-[200px]">
       <Scanner
         components={{
-          audio:false,
-          
+          audio: false,
         }}
         options={
           {
