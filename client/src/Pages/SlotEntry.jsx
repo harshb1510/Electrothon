@@ -36,7 +36,7 @@ const SlotEntry = () => {
         }}
         options={
           {
-            delayBetweenScanAttempts:5000
+            delayBetweenScanSuccess:10000,
 
           }
         }

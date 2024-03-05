@@ -99,6 +99,16 @@ const SlotExit = () => {
   return (
     <div className="h-[400px] w-[400px] m-auto mt-[200px]">
     <Scanner
+     components={{
+      audio:false,
+      
+    }}
+    options={
+      {
+        delayBetweenScanSuccess:10000,
+
+      }
+    }
       onResult={(text) => qrData(text)}
       onError={(error) => console.log(error?.message)}
     />
