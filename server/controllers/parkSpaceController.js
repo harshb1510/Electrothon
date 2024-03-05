@@ -24,7 +24,7 @@ const allSlot = async (req, res) => {
 };
 
 const slotEntry = async (req, res) => {
-  const id = req.body.id;
+  const id = req.body.slotId;
   const carOwnerId = req.body.carOwner;
   const slot = await Slot.findById(id);
   if (slot) {
@@ -47,14 +47,16 @@ const slotExit = async (req, res) => {
         slot.occupied = false;
         slot.carOwner = "";
         const inTime = slot.inTime;
-        const totalTime = Date.now() - Int16Array(inTime);
-        const hours = Math.floor(totalTime / 3600000);
+        const inTimeInt = parseInt(inTime);
+        const totalTime = Date.now() - inTimeInt;
+        console.log(totalTime);
+        const minutes = Math.floor((totalTime % 3600000) / 60000);
         slot.inTime = "";
         slot.save();
         res.status(200).json({
         Success: "Slot Exit Successful!",
-        hours: hours,
-        payableAmount: hours * 50,
+        minutes: minutes,
+        payableAmount: minutes * 1,
         });
     } else {
         res.status(400);
