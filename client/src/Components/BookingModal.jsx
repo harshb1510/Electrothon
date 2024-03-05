@@ -170,30 +170,48 @@ export default function BookingModal({
         slots={{ backdrop: StyledBackdrop }}
       >
         <Fade in={open}>
-          <ModalContent sx={style}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DemoContainer components={["DateTimePicker", "DateTimePicker"]}>
-                <DateTimePicker
-                  label="Initial"
-                  minDate={dayjs(new Date())}
-                  onChange={(e) => setInitial(e)}
-                  disablePast
-                  maxDate={dayjs(availableTill)}
-                />
-                <DateTimePicker
-                  label="Final"
-                  value={final}
-                  onChange={(newValue) => setFinal(newValue)}
-                  disablePast
-                  maxDate={dayjs(availableTill)}
-                />
-              </DemoContainer>
-            </LocalizationProvider>
-            <p>Total hours:{hours}</p>
-            <p>Rent Price:{rentPrice} Rs.</p>
-            <button onClick={handleProceed}>Pay via Razorpay</button>
-            <button onClick={handlePayment}>Pay via Crypto</button>
-          </ModalContent>
+        <ModalContent sx={style}>
+  <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <DemoContainer components={["DateTimePicker", "DateTimePicker"]}>
+      <div>
+        <label htmlFor="initial">Initial</label>
+        <input
+          type="datetime-local"
+          id="initial"
+          min={dayjs(new Date()).format("YYYY-MM-DDTHH:mm")}
+          max={dayjs(availableTill).format("YYYY-MM-DDTHH:mm")}
+          onChange={(e) => {
+            const selectedDate = dayjs(e.target.value).toDate();
+            if (!final || selectedDate < final) {
+              setInitial(selectedDate);
+            }
+          }}
+        />
+      </div>
+      <div>
+        <label htmlFor="final">Final</label>
+        <input
+          type="datetime-local"
+          id="final"
+          min={dayjs(initial).add(1, 'minute').format("YYYY-MM-DDTHH:mm")}
+          max={dayjs(availableTill).format("YYYY-MM-DDTHH:mm")}
+          onChange={(e) => {
+            const selectedDate = dayjs(e.target.value).toDate();
+            if (selectedDate > initial) {
+              setFinal(selectedDate);
+            }
+          }}
+        />
+      </div>
+    </DemoContainer>
+  </LocalizationProvider>
+  <p>Total hours: {hours}</p>
+  <p>Rent Price: {rentPrice} Rs.</p>
+  <button onClick={handleProceed}>Pay via Razorpay</button>
+  <button onClick={handlePayment}>Pay via Crypto</button>
+</ModalContent>
+
+
         </Fade>
       </Modal>
     </div>
