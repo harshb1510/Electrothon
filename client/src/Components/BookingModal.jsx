@@ -179,6 +179,7 @@ export default function BookingModal({
           type="datetime-local"
           id="initial"
           min={dayjs(new Date()).format("YYYY-MM-DDTHH:mm")}
+          max={dayjs(availableTill).format("YYYY-MM-DDTHH:mm")}
           onChange={(e) => {
             const selectedDate = dayjs(e.target.value).toDate();
             if (!final || selectedDate < final) {
