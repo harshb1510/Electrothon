@@ -13,6 +13,7 @@ import SlotReader from "./Pages/SlotEntry.jsx";
 import SlotEntry from "./Pages/SlotEntry.jsx";
 import SlotExit from "./Pages/SlotExit.jsx";
 import Admin from "./Pages/Admin.jsx";
+import ParkArea from "./Pages/ParkArea.jsx";
 
 const App = () => (
   <div className="App">
@@ -26,6 +27,7 @@ const App = () => (
         <Route path="/myCar" element={<MyCar />} />
         <Route path='/rental' element={<RentalCard />} />
         <Route path ='/parking' element={<Parking />} />
+        <Route path='/park' element={<ParkArea/>}/>
         <Route path ='/slot' element={<Slot />} />
         <Route path ='/slotentry' element={<SlotEntry />} />
         <Route path ='/slotexit' element={<SlotExit />} />
