@@ -2,12 +2,14 @@ import React from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import { useNavigate } from "react-router-dom";
 
+
 const SlotEntry = () => {
   const history = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
   const redirect = async () => {
     history("/admin");
+    window.location.reload();
   };
 
   const qrData = async (text) => {
@@ -31,11 +33,12 @@ const SlotEntry = () => {
       <Scanner
         components={{
           audio: false,
+          video: false,
         }}
         options={
-          {
-            delayBetweenScanSuccess:10000,
-
+          { 
+           delayBetweenScanAttempts: 1000,
+            delayBetweenScanSuccess: 10000,
           }
         }
         onResult={(text, result) => qrData(text , result)}
