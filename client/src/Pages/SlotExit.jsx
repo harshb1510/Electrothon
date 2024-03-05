@@ -3,6 +3,7 @@ import { Scanner } from "@yudiel/react-qr-scanner";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Button, Modal } from "@mui/material";
+import makeCryptoPayment from "../utils/constants";
 
 const SlotExit = () => {
   const history = useNavigate();
@@ -90,39 +91,41 @@ const SlotExit = () => {
     handleProceed(payableAmount);
   };
 
-  const handlePayWithWallet = () => {
-    // Implement payment with wallet logic here
-    // For example, redirect to a wallet payment page
+  const handlePayWithWallet = async() => {
     setShowModal(false);
+    const cryptoAmount = payableAmount * 0.011;
+    const cryptoAddress = "0xC3385be7163DA9ee64dfE1847De5dC9c8Aa88eC0"
+    await makeCryptoPayment(cryptoAddress , cryptoAmount);
+    history("/admin");
   };
 
   return (
     <div className="h-[400px] w-[400px] m-auto mt-[200px]">
-    <Scanner
-      onResult={(text) => qrData(text)}
-      onError={(error) => console.log(error?.message)}
-    />
-    <Modal open={showModal} onClose={() => setShowModal(false)}>
-      <div className="modal-container bg-white fixed z-[1300]  flex items-center justify-center">
-        <div className="modal-content flex flex-col justify-center items-center gap-5 p-6 ">
-          <h2>Payable Amount: {payableAmount}</h2>
-          <Button
-            onClick={handlePayWithRazorpay}
-            style={{ backgroundColor: "green", color: "white" }}
-          >
-            Pay with Razorpay
-          </Button>
-          <Button
-            onClick={handlePayWithWallet}
-            style={{ backgroundColor: "red", color: "white" }}
-          >
-            Pay with Wallet
-          </Button>
+      <Scanner
+        onResult={(text) => qrData(text)}
+        onError={(error) => console.log(error?.message)}
+      />
+      <Modal open={showModal} onClose={() => setShowModal(false)}>
+        <div className="modal-container bg-white fixed z-[1300]  flex items-center justify-center">
+          <div className="modal-content flex flex-col justify-center items-center gap-5 p-6 ">
+            <h2>Payable Amount: {payableAmount}</h2>
+            <Button
+              onClick={handlePayWithRazorpay}
+              style={{ backgroundColor: "green", color: "white" }}
+            >
+              Pay with Razorpay
+            </Button>
+            <Button
+              onClick={handlePayWithWallet}
+              style={{ backgroundColor: "red", color: "white" }}
+            >
+              Pay with Wallet
+            </Button>
+          </div>
         </div>
-      </div>
-    </Modal>
-  </div>
-);
+      </Modal>
+    </div>
+  );
 };
 
 export default SlotExit;
