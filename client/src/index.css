@@ -15,6 +15,7 @@
 
 body {
   /* background: linear-gradient(90deg, rgb(120, 194, 212) 2%, rgb(135, 188, 204) 35%, rgb(123, 203, 215) 100%); */
-  background-color: #3f757e;
+  background-color: #ffffff;
   overflow-x: hidden;
+  color:black
 }

@@ -6,7 +6,7 @@ import person3 from "../assets/person3.jpeg";
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
 
-  heading2: "font-poppins font-semibold text-[40px] text-white   w-full text-center",
+  heading2: "font-poppins font-semibold text-[40px] text-black   w-full text-center",
   paragraph: "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",
 
   flexCenter: "flex justify-center items-center",

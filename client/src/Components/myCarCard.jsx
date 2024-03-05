@@ -33,7 +33,7 @@ const Card = ({ id,carName, ownerName, kms, image1, image2, available, available
   
   return (
     <div className="flex justify-center p-3">
-      <div className="max-w-lg rounded-lg  border border-gray-200 shadow-lg bg-[#3f757e] text-black">
+      <div className="max-w-lg rounded-lg  border border-gray-200 shadow-lg bg-white text-black">
         <div className="relative w-full h-60">
           <Carousel slideInterval={3000} >
             <img src={image1} alt="Car" className="w-full h-full object-cover" />

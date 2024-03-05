@@ -14,8 +14,8 @@ export default function Navbar() {
 
   return (
     <div>
-      <nav className="bg-[#3f757e] text-white">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-white">
+      <nav className="bg-white text-black">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4 text-black">
             <Link to='/' className="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src={logo} className="h-20 w-[300px]" alt="Park&Go Logo" />
             </Link>

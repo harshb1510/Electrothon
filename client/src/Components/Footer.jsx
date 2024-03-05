@@ -9,7 +9,7 @@ const customStyles = {
   // Renamed from styles to avoid conflict
   boxWidth: "xl:max-w-[1280px] w-full",
   heading2:
-    "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
+    "font-poppins font-semibold xs:text-[48px] text-[40px] text-black xs:leading-[76.8px] leading-[66.8px] w-full",
   paragraph:
     "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",
   flexCenter: "flex justify-center items-center",
@@ -119,16 +119,16 @@ const socialMedia = [
 
 const Footer = () => (
   <section
-    className={`${customStyles.flexCenter} ${customStyles.paddingY} flex-col bg-[#3f757e]`}
+    className={`${customStyles.flexCenter} ${customStyles.paddingY} flex-col bg-white`}
     data-aos="fade-up"
   >
     <div className={`${customStyles.flexStart} md:flex-row flex-col  w-full`}>
       <div className="flex-[1] flex flex-col justify-start mr-10">
-        <h1 className="text-[42px] font-bold text-white">
+        <h1 className="text-[42px] font-bold text-black">
           <img src={logo} alt="" />
         </h1>
         <p
-          className={`${customStyles.paragraph} mt-4 max-w-[312px] text-white`}
+          className={`${customStyles.paragraph} mt-4 max-w-[312px] text-black`}
         >
           A new way to make the payments easy, reliable and secure.
         </p>
@@ -140,10 +140,10 @@ const Footer = () => (
             key={footerlink.title}
             className={`flex flex-col ss:my-0 my-4 min-w-[150px]`}
           >
-            <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-white">
+            <h4 className="font-poppins font-medium text-[18px] leading-[27px] text-black">
               {footerlink.title}
             </h4>
-            <ul className="list-none mt-4 text-white">
+            <ul className="list-none mt-4 text-black">
               {footerlink.links.map((link, index) => (
                 <Link
                   key={link.name}

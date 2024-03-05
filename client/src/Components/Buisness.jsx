@@ -30,7 +30,7 @@ const features = [
 const styles = {
   boxWidth: "xl:max-w-[1280px] w-full",
   heading2:
-    "font-poppins font-semibold xs:text-[48px] text-[40px] text-white xs:leading-[76.8px] leading-[66.8px] w-full",
+    "font-poppins font-semibold xs:text-[48px] text-[40px] text-black xs:leading-[76.8px] leading-[66.8px] w-full",
   paragraph:
     "font-poppins font-normal text-dimWhite text-[18px] leading-[30.8px]",
   flexCenter: "flex justify-center items-center",
@@ -72,7 +72,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
       <img src={icon} alt="star" className="w-[50%] h-[50%] object-contain" />
     </div>
     <div className="flex-1 flex flex-col ml-3">
-      <h4 className="font-poppins font-semibold text-white text-[23px]  mb-1">
+      <h4 className="font-poppins font-semibold text-black text-[23px]  mb-1">
         {title}
       </h4>
     </div>
@@ -82,7 +82,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
 const Business = () => (
   <section
     id="features"
-    className={`${layout.section} p-[100px] text-white bg-[#3f757e]`}
+    className={`${layout.section} p-[100px] text-black bg-white`}
     data-aos="fade-up"
   >
     <div className={layout.sectionInfo}>

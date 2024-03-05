@@ -25,7 +25,7 @@ const Stats = () => (
         key={stat.id}
         className={`flex-1 grid justify-start  content-center flex-row p-6 text-center ml-12`}
       >
-        <h4 className="font-poppins font-semibold text-[40px] text-center   text-white">
+        <h4 className="font-poppins font-semibold text-[40px] text-center   text-black">
           {stat.value}
         </h4>
         <p className="font-poppins font-semibold text-[20px]   text-gradient uppercase ml-3">

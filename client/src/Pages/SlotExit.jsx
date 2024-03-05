@@ -104,12 +104,11 @@ const SlotExit = () => {
     <Scanner
      components={{
       audio:false,
-      
+     
     }}
     options={
       {
         delayBetweenScanSuccess:10000,
-
       }
     }
       onResult={(text) => qrData(text)}
