@@ -1,7 +1,5 @@
-import React from "react";
 import { Carousel } from "flowbite-react";
 import BookingModal from "./BookingModal";
-import axios from "axios";
 
 
 

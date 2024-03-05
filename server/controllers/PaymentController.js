@@ -23,7 +23,7 @@ const addBooking = async(req,res)=>{
         key_id:process.env.razorpay_key_id,
         key_secret:process.env.razorpay_key_secret,
     }); 
-
+    
     const order = {
         amount:req.body.rentPrice*100,
         currency:"INR",
