@@ -50,7 +50,7 @@ const MyCar = () => {
         <button onClick={handleConnect}>Connect Wallet</button>
       )}
       <h3>Amount Earned via UPI: {user.amountEarned}</h3>
-      <h3>Amount Earned via Crypto : {user.cyptoAmount}</h3>
+      <h3>Amount Earned via Crypto : {user.cryptoAmount}</h3>
 
       <h1 className="text-4xl text-center font-bold p-12">My Cars</h1>
 

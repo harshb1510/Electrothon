@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Scanner } from "@yudiel/react-qr-scanner";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Button, Modal } from "@mui/material";
 
 const SlotExit = () => {
   const history = useNavigate();
 
   const [payableAmount, setPayableAmount] = React.useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   React.useEffect(() => {
     const loadRazorpayScript = async () => {
@@ -79,16 +81,48 @@ const SlotExit = () => {
     const data = await slotExit.json();
     console.log(data.payableAmount);
     setPayableAmount(data.payableAmount);
-    await handleProceed(data.payableAmount);
+    setShowModal(true);
+    // await handleProceed(data.payableAmount);
   };
+
+  const handlePayWithRazorpay = () => {
+    setShowModal(false);
+    handleProceed(payableAmount);
+  };
+
+  const handlePayWithWallet = () => {
+    // Implement payment with wallet logic here
+    // For example, redirect to a wallet payment page
+    setShowModal(false);
+  };
+
   return (
     <div className="h-[400px] w-[400px] m-auto mt-[200px]">
-      <Scanner
-        onResult={(text) => qrData(text)}
-        onError={(error) => console.log(error?.message)}
-      />
-    </div>
-  );
+    <Scanner
+      onResult={(text) => qrData(text)}
+      onError={(error) => console.log(error?.message)}
+    />
+    <Modal open={showModal} onClose={() => setShowModal(false)}>
+      <div className="modal-container bg-white fixed z-[1300]  flex items-center justify-center">
+        <div className="modal-content flex flex-col justify-center items-center gap-5 p-6 ">
+          <h2>Payable Amount: {payableAmount}</h2>
+          <Button
+            onClick={handlePayWithRazorpay}
+            style={{ backgroundColor: "green", color: "white" }}
+          >
+            Pay with Razorpay
+          </Button>
+          <Button
+            onClick={handlePayWithWallet}
+            style={{ backgroundColor: "red", color: "white" }}
+          >
+            Pay with Wallet
+          </Button>
+        </div>
+      </div>
+    </Modal>
+  </div>
+);
 };
 
 export default SlotExit;
