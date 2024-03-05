@@ -91,51 +91,50 @@ const SlotExit = () => {
     handleProceed(payableAmount);
   };
 
-  const handlePayWithWallet = async() => {
+  const handlePayWithWallet = async () => {
     setShowModal(false);
     const cryptoAmount = payableAmount * 0.011;
-    const cryptoAddress = "0xC3385be7163DA9ee64dfE1847De5dC9c8Aa88eC0"
-    await makeCryptoPayment(cryptoAddress , cryptoAmount);
+    const cryptoAddress = "0xC3385be7163DA9ee64dfE1847De5dC9c8Aa88eC0";
+    await makeCryptoPayment(cryptoAddress, cryptoAmount);
     history("/admin");
   };
 
   return (
     <div className="h-[400px] w-[400px] m-auto mt-[200px]">
-    <Scanner
-     components={{
-      audio:false,
-      
-    }}
-    options={
-      {
-        delayBetweenScanSuccess:10000,
-
-      }
-    }
-      onResult={(text) => qrData(text)}
-      onError={(error) => console.log(error?.message)}
-    />
-    <Modal open={showModal} onClose={() => setShowModal(false)}>
-      <div className="modal-container bg-white fixed z-[1300]  flex items-center justify-center">
-        <div className="modal-content flex flex-col justify-center items-center gap-5 p-6 ">
-          <h2>Payable Amount: {payableAmount}</h2>
-          <Button
-            onClick={handlePayWithRazorpay}
-            style={{ backgroundColor: "green", color: "white" }}
-          >
-            Pay with Razorpay
-          </Button>
-          <Button
-            onClick={handlePayWithWallet}
-            style={{ backgroundColor: "red", color: "white" }}
-          >
-            Pay with Wallet
-          </Button>
+      <Scanner
+        components={{
+          audio: false,
+        }}
+        options={{
+          delayBetweenScanSuccess: 10000,
+        }}
+        onResult={(text) => qrData(text)}
+        onError={(error) => console.log(error?.message)}
+      />
+      <Modal open={showModal} onClose={() => setShowModal(false)}>
+        <div className="modal-container bg-white fixed z-[1300]  flex items-center justify-center">
+          <div className="modal-content flex flex-col justify-center items-center gap-5 p-6 ">
+            <h2>
+              Payable Amount: {payableAmount} Rs. ({payableAmount * 0.011}{" "}
+              MATIC)
+            </h2>
+            <Button
+              onClick={handlePayWithRazorpay}
+              style={{ backgroundColor: "green", color: "white" }}
+            >
+              Pay with Razorpay
+            </Button>
+            <Button
+              onClick={handlePayWithWallet}
+              style={{ backgroundColor: "red", color: "white" }}
+            >
+              Pay with Wallet
+            </Button>
+          </div>
         </div>
-      </div>
-    </Modal>
-  </div>
-);
+      </Modal>
+    </div>
+  );
 };
 
 export default SlotExit;
